@@ -8,16 +8,22 @@ import cookieParser from "cookie-parser";
 import helmet from "helmet";
 import path from "path";
 
+
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // your API routes first
 // app.use("/api/...", require("./routes/..."));
 
 
 // serve frontend build
 const app = express();
-app.use(express.static(path.join(__dirname, "dist")));
+app.use(express.static(path.join(__dirname, "../Frontend/dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
+  res.sendFile(path.join(__dirname, "dist", "../Frontend/dist/index.html"));
 });
 
 
