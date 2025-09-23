@@ -13,13 +13,14 @@ import path from "path";
 
 
 // serve frontend build
+const app = express();
 app.use(express.static(path.join(__dirname, "dist")));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
-const app = express();
+
 const PORT = 8080;
 
 app.use(express.json());
