@@ -6,6 +6,18 @@ import chatRoutes from "./routes/chat.js";
 import authRoutes from './routes/authRoutes.js';
 import cookieParser from "cookie-parser";
 import helmet from "helmet";
+import path from "path";
+
+// your API routes first
+// app.use("/api/...", require("./routes/..."));
+
+
+// serve frontend build
+app.use(express.static(path.join(__dirname, "dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
 
 const app = express();
 const PORT = 8080;
