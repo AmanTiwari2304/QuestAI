@@ -20,10 +20,7 @@ const __dirname = path.dirname(__filename);
 
 // serve frontend build
 const app = express();
-app.use(express.static(path.resolve(__dirname, "../Frontend")));
-
-
-
+app.use(express.static(path.resolve(__dirname, "../Frontend/dist")));
 
 const PORT = 8080;
 
@@ -36,11 +33,13 @@ app.use(cookieParser());
 //   credentials: true
 // }));
 
+// API routes
 app.use("/api", chatRoutes);
 app.use('/api/auth', authRoutes);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../Frontend/index.html"));
+// Catch-all route for frontend (only for non-API routes)
+app.get(/^\/(?!api).*/, (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../Frontend/dist/index.html"));
 });
 
 const connectDB = async () => {
