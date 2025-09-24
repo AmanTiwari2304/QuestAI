@@ -22,7 +22,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 app.use(express.static(path.resolve(__dirname, "../Frontend/dist")));
 
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
 app.use(cors());

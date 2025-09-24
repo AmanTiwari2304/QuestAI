@@ -5,6 +5,7 @@ import { useContext, useState, useEffect } from "react";
 import { ScaleLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8080"
 
 export default function ChatWindow() {
     const {prompt, setPrompt, reply, 
@@ -30,7 +31,7 @@ export default function ChatWindow() {
         };
 
         try {
-            const response = await fetch("http://localhost:8080/api/chat", options)
+            const response = await fetch(`${API_BASE_URL}/api/chat`, options)
             const res = await response.json();
             console.log(res);
             setReply(res.reply)
@@ -65,7 +66,7 @@ export default function ChatWindow() {
     return(
         <div className="chatWindow">
             <div className="navbar">
-                <span> GuestAI <i className="fa-solid fa-chevron-down"></i></span>
+                <span> QuestAI <i className="fa-solid fa-chevron-down"></i></span>
                 <div className="upgradePlan">
                     <button onClick={() => navigate("/pricing")}>
                         <i className="fa-solid fa-rocket"></i>
