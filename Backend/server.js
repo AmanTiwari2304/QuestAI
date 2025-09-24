@@ -20,7 +20,7 @@ const __dirname = path.dirname(__filename);
 
 // serve frontend build
 const app = express();
-app.use(express.static(path.join(__dirname, "../Frontend/dist")));
+app.use(express.static(path.resolve(__dirname, "../Frontend/dist")));
 
 
 
@@ -40,7 +40,7 @@ app.use("/api", chatRoutes);
 app.use('/api/auth', authRoutes);
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "../Frontend/dist/index.html"));
+  res.sendFile(path.resolve(__dirname, "dist", "../Frontend/dist/index.html"));
 });
 
 const connectDB = async () => {
