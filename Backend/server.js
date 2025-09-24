@@ -40,7 +40,7 @@ app.use("/api", chatRoutes);
 app.use('/api/auth', authRoutes);
 
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "dist", "../Frontend/dist/index.html"));
+  res.sendFile(path.resolve(__dirname, "../Frontend/dist/index.html"));
 });
 
 const connectDB = async () => {
