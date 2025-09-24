@@ -20,7 +20,7 @@ const __dirname = path.dirname(__filename);
 
 // serve frontend build
 const app = express();
-app.use(express.static(path.resolve(__dirname, "../Frontend/dist")));
+app.use(express.static(path.resolve(__dirname, "../Frontend")));
 
 
 
