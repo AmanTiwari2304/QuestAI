@@ -7,9 +7,9 @@ import ChatWindow from "./ChatWindow.jsx";
 import Pricing from "./Pricing.jsx";
 import Sidebar from "./Sidebar.jsx";
 
-import Login from "./pages/Login.jsx";
-import Signup from "./pages/Signup.jsx";
-import { AuthProvider } from "./context/AuthContext.jsx";
+// import Login from "./pages/Login.jsx";
+// import Signup from "./pages/Signup.jsx";
+// import { AuthProvider } from "./context/AuthContext.jsx";
 
 function AppContent() {
   const [prompt, setPrompt] = useState("");
@@ -31,19 +31,20 @@ function AppContent() {
 
   // Check if current path is '/pricing'
   const isPricingPage = location.pathname === "/pricing";
-  const isLoginPage = location.pathname === "/login";
-  const isSignupPage = location.pathname === "/signup";
+  // const isLoginPage = location.pathname === "/login";
+  // const isSignupPage = location.pathname === "/signup";
 
 
   return (
     <MyContext.Provider value={providerValues}>
       <div className={isPricingPage  ? '' : 'app'}>
-        {!isPricingPage && !isSignupPage && !isLoginPage  && <Sidebar />}
+        {/* {!isPricingPage && !isSignupPage && !isLoginPage  && <Sidebar />} */}
+        {!isPricingPage && <Sidebar />}
         <Routes>
           <Route path="/" element={<ChatWindow />} />
           <Route path="/pricing" element={<Pricing />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          {/* <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} /> */}
         </Routes>
       </div>
     </MyContext.Provider>
@@ -53,9 +54,10 @@ function AppContent() {
 function App() {
   return (
     <Router>
-      <AuthProvider>
-        <AppContent />
-      </AuthProvider>
+      <AppContent />
+      {/* <AuthProvider>
+        
+      </AuthProvider> */}
     </Router>
   );
 }

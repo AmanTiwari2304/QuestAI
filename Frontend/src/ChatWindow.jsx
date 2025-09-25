@@ -81,8 +81,10 @@ export default function ChatWindow() {
             {
                 isOpen && 
                 <div className="dropDown">
-                    <div className="dropDownItem" onClick={() => navigate("/login")}><i class="fa-solid fa-right-to-bracket"></i>Login</div>
-                    <div className="dropDownItem" onClick={() => navigate("/signup")}><i class="fa-solid fa-user-plus"></i>Sign-Up</div>
+                    {/* <div className="dropDownItem" onClick={() => navigate("/login")}><i class="fa-solid fa-right-to-bracket"></i>Login</div>
+                    <div className="dropDownItem" onClick={() => navigate("/signup")}><i class="fa-solid fa-user-plus"></i>Sign-Up</div> */}
+                    <div className="dropDownItem" ><i class="fa-solid fa-right-to-bracket"></i>Login</div>
+                    <div className="dropDownItem" ><i class="fa-solid fa-user-plus"></i>Sign-Up</div>
                     <div className="dropDownItem" onClick={() => navigate("/pricing")}><i class="fa-solid fa-star-of-life"></i> Upgrade Plan</div>
                     <div className="dropDownItem"><i class="fa-solid fa-bowling-ball"></i>Personalization</div>
                     <div className="dropDownItem"><i class="fa-solid fa-gear"></i>Settings</div>
