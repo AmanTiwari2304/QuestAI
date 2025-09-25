@@ -37,6 +37,11 @@ app.use(cookieParser());
 app.use("/api", chatRoutes);
 app.use('/api/auth', authRoutes);
 
+app.get("/ping", (req, res) => {
+  res.send("🚀 New Deploy Active");
+});
+
+
 // Catch-all route for frontend (only for non-API routes)
 app.get(/^\/(?!api).*/, (req, res) => {
   res.sendFile(path.resolve(__dirname, "../Frontend/dist/index.html"));
